@@ -1,0 +1,49 @@
+#!/bin/sh -
+clear
+#------------------------------
+#          Creditos
+#   Miner by wolf9466
+#   Source by FENIX_LINUX
+#   Edit by HumansLothbrok
+#------------------------------
+bash=$(echo $BASH)
+
+
+if [ "$bash" = "/bin/bash" ]
+then
+exit 0
+fi
+
+core=0
+wallet=$1
+if [ "$1" = ""  ]
+then			
+echo "\033[34m Erro carteira não inserida. \033[0m"
+exit 0
+fi
+
+echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
+echo "\033[01;31m	 * Minerar Monero na http://supportxmr.com \033[0m   \n"
+sleep 1
+echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
+sudo apt-get update >/dev/null
+sudo apt-get install git -y >/dev/null
+sudo apt-get install screen -y >/dev/null
+sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
+sudo rm -r cpuminer-multi 
+git clone https://github.com/wolf9466/cpuminer-multi
+clear
+echo "\033[44;1;37m Configurando e Compilando Recursos..... \033[0m "
+sleep 1
+cd cpuminer-multi/
+chmod +x autogen.sh
+./autogen.sh
+CFLAGS="-march=native" ./configure
+make
+sudo make install
+cd cpuminer-multi
+sudo mv minerd /usr/local/bin/
+clear
+echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
+sleep 1
+minerd -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x -t $core -R 1 -B
