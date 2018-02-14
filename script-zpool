@@ -18,7 +18,7 @@ core=0
 wallet=$1
 if [ "$1" = ""  ]
 then
-echo "sudo sh $0 \033[31m Erro falta a carteira de BTC \033[0m  \n "
+echo "\033[31m Erro falta a carteira de BTC \033[0m  \n "
 exit 0
 fi
 
