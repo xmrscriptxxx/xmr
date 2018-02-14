@@ -18,7 +18,7 @@ core=0
 wallet=$1
 if [ "$1" = ""  ]
 then			
-echo "\033[34m Erro carteira não inserida. \033[0m"
+echo "\033[34m Erro carteira XMR não inserida. \033[0m"
 exit 0
 fi
 
