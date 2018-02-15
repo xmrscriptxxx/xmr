@@ -13,7 +13,7 @@ if [ "$bash" = "/bin/bash" ]
 then
 exit 0
 fi
-core
+core=$3
 email=$2
 wallet=$1
 
