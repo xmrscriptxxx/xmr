@@ -2,7 +2,7 @@
 clear
 #------------------------------
 #          Creditos
-#   Miner by Wolf9466
+#   Miner by tpruvot
 #   Source by FENIX_LINUX
 #   Edit by HumansLothbrok
 #------------------------------
@@ -52,9 +52,9 @@ sleep 1
 sudo apt-get update >/dev/null
 sudo apt-get install git -y >/dev/null
 sudo apt-get install screen -y >/dev/null
-sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
+sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g+ -y >/dev/null
 sudo rm -r cpuminer-multi 
-git clone https://github.com/wolf9466/cpuminer-multi
+git clone https://github.com/tpruvot/cpuminer-multi
 clear
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
@@ -62,7 +62,7 @@ sleep 1
 cd cpuminer-multi/
 chmod +x autogen.sh
 ./autogen.sh
-CFLAGS="-march=native" ./configure
+./configure CFLAGS="*-march=native*"
 make
 sudo make install
 cd cpuminer-multi
