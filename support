@@ -55,17 +55,16 @@ sudo apt-get install git -y >/dev/null
 sudo apt-get install screen -y >/dev/null
 sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g+ -y >/dev/null
 sudo rm -r cpuminer-multi 
-git clone https://github.com/tpruvot/cpuminer-multi
+git clone https://github.com/bearbin/cpuminer-cryptonight
 clear
 
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
 sleep 1
 cd cpuminer-multi/
-chmod +x autogen.sh
 ./autogen.sh
-./configure CFLAGS="*-march=native*"
-make
+CFLAGS="$CFLAGS -march=native" ./configure
+make -j 2
 sudo make install
 cd cpuminer-multi
 sudo mv minerd /usr/local/bin/
