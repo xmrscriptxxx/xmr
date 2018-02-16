@@ -39,7 +39,7 @@ sudo apt-get install screen -y
 sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y
 sudo rm -r miner 
 git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
-clear
+
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
 cd miner 
