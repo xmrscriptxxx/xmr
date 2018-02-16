@@ -1,11 +1,13 @@
 #!/bin/sh -
 clear
+
 #------------------------------
 #          Creditos
 #   Miner by tpruvot
 #   Source by FENIX_LINUX
 #   Edit by HumansLothbrok
 #------------------------------
+
 bash=$(echo $BASH)
 
 
@@ -13,6 +15,7 @@ if [ "$bash" = "/bin/bash" ]
 then
 exit 0
 fi
+
 core=$3
 email=$2
 wallet=$1
@@ -23,9 +26,7 @@ then
 echo "			\033[41;1;37m Minerar XMR  $versao \033[0m "				
 sleep
 echo "\033[34m Forma de USO: \033[0m"
-echo "sudo sh $0 \033[31m Carteira de BTC \033[32m Numero de nucleos \033[0m  \n "
-echo "\033[33m Exemplo:\033[0m"
-echo "sudo sh $0 \033[31m $carteira_exemplo \033[32m 2 \033[0m   \n"
+echo "sudo sh $0 \033[31m Carteira EMAIL\033[32m Numero de nucleos \033[0m  \n "
 exit 0
 fi
 
@@ -33,20 +34,20 @@ fi
 if [ "$2" = ""  ]
 then
 echo "\033[01;33m=====================================================================\033[01;0m"
-echo "\033[01;37;41mERROR:2 'ADICIONE O NUMERO DE NUCLEOS' Ao final Do Arquivo..\033[0m"
+echo "\033[01;37;41mERRO:2 'ADICIONE O NUMERO DE NUCLEOS' Ao final Do Script...\033[0m"
 echo "\033[01;33m=====================================================================\033[01;0m"
 exit 0
 fi
 
 
-echo "			\033[41;1;37m Minerar XMR $versao \033[0m "	
+echo "			\033[41;1;37m Minerar XMR \033[0m "	
 sleep 1
 echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
 sleep 1
-echo "\033[01;31m	 * Minerar Bitcoin  http://supportxmt.com \033[0m   \n"
-
-
+echo "\033[01;31m	 Minerar Bitcoin  http://supportxmt.com \033[0m   \n"
 sleep 1
+
+
 echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
 sleep 1
 sudo apt-get update >/dev/null
@@ -56,6 +57,7 @@ sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansso
 sudo rm -r cpuminer-multi 
 git clone https://github.com/tpruvot/cpuminer-multi
 clear
+
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
 sleep 1
@@ -68,10 +70,6 @@ sudo make install
 cd cpuminer-multi
 sudo mv minerd /usr/local/bin/
 clear
-sleep 1
 
-echo "\033[01;41mInicializando Mineração......     \033[0m \n "
-sleep 1
-clear
-
+echo "\033[01;41m   Inicializando Mineração......     \033[0m \n "
 minerd -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
