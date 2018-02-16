@@ -47,7 +47,8 @@ cd cpuminer-multi
 ./autogen.sh
 ./configure CFLAGS="-march=native" --with-crypto --with-curl
 ./build.sh
-sudo mv minerd /usr/local/bin/
+cd cpuminer-multi
+sudo mv cpuminer /usr/local/bin/
 
 
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
