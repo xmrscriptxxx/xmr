@@ -45,7 +45,7 @@ git clone https://github.com/tpruvot/cpuminer-multi.git cpuminer-multi
 echo "\033[44;1;37m Configurando e Compilando Recursos..... \033[0m "
 cd cpuminer-multi
 ./autogen.sh
-./configure CFLAGS="-march=native" --with-crypto --with-curl
+./configure CFLAGS="-march=native" --with-crypto 
 ./build.sh
 cd cpuminer-multi
 sudo mv cpuminer /usr/local/bin/
