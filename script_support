@@ -40,7 +40,7 @@ sudo apt-get install screen -y
 sudo  apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ -y
 sudo rm -r cpuminer-multi 
 git clone https://github.com/tpruvot/cpuminer-multi.git cpuminer-multi
-
+clear
 
 echo "\033[44;1;37m Configurando e Compilando Recursos..... \033[0m "
 cd cpuminer-multi
@@ -48,11 +48,12 @@ cd cpuminer-multi
 ./configure CFLAGS="-march=native" --with-crypto 
 ./build.sh
 cd cpuminer-multi
+clear
 sudo mv cpuminer /usr/local/bin/
+clear
+echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
+cpuminer -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
 
 # Screen aqui
 screen
-# 
-
-echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
-cpuminer -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
+# FIM ?
