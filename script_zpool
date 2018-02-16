@@ -1,11 +1,13 @@
 #!/bin/sh -
 clear
+
 #------------------------------
 #          Creditos
-#   Miner by noncepool
+#   Miner by tpruvot
 #   Source by FENIX_LINUX
 #   Edit by HumansLothbrok
 #------------------------------
+
 bash=$(echo $BASH)
 
 
@@ -14,29 +16,32 @@ then
 exit 0
 fi
 
-core=0
+core=$2
 wallet=$1
+
+
 if [ "$1" = ""  ]
 then
-echo "\033[31m Erro carteira BTC não inserida. \033[0m  \n "
+echo "			\033[41;1;37m Minerar BTC  $versao \033[0m "				
+sleep
+echo "\033[34m Você deve adicionar nessa ordem \033[0m"
+echo "sudo sh $0 \033[31m Carteira \033[32m Numero de nucleos \033[0m  \n "
+echo "\033[34m ao final do script para que possa minerar corretamente \033[0m"
 exit 0
 fi
 
 echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
-echo "\033[01;31m	 * Minerar Bitcoin  http://Zpool.ca \033[0m   \n"
-sleep 1
+echo "\033[01;31m	 * Minerar BTC na http://zpool.ca \033[0m   \n"
 echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
-sudo apt-get update >/dev/null
-sudo apt-get install git -y >/dev/null
-sudo apt-get install screen -y >/dev/null
-sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
+sudo apt-get update
+sudo apt-get install git -y
+sudo apt-get install screen -y
+sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y
 sudo rm -r miner 
 git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
-sleep 1
 clear
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
-sleep 1
 cd miner 
 ./autogen.sh 
 ./configure CFLAGS="-O3" 
@@ -44,6 +49,12 @@ make
 cd miner 
 sudo mv minerd /usr/local/bin/
 clear
+
+
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
-sleep 1
-minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -R 1 -B
+minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -R 30 -B
+
+
+# Screen aqui
+screen
+# Fim ?
