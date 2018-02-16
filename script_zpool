@@ -50,7 +50,6 @@ cd miner
 sudo mv minerd /usr/local/bin/
 
 
-
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
 minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -R 30 -B
 
