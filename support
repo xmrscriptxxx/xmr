@@ -72,4 +72,4 @@ sudo mv minerd /usr/local/bin/
 clear
 
 echo "\033[01;41m   Inicializando Mineração......     \033[0m \n "
-minerd -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
+cpuminer -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
