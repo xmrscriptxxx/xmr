@@ -43,15 +43,12 @@ git clone https://github.com/tpruvot/cpuminer-multi.git cpuminer-multi
 
 
 echo "\033[44;1;37m Configurando e Compilando Recursos..... \033[0m "
-cd cpuminer-multi/
-chmod +x autogen.sh
-./autogen.sh
-./configure CFLAGS="*-march=native*" --with-crypto --with-curl
-make
-sudo make install
 cd cpuminer-multi
+./autogen.sh
+./configure CFLAGS="-march=native" --with-crypto --with-curl
+./build.sh
 sudo mv minerd /usr/local/bin/
 
 
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
-minerd -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
+cpuminer -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u $wallet -p x:$email -t $core -R 30 -B
