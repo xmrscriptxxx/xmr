@@ -30,6 +30,14 @@ echo "\033[34m ao final do script para que possa minerar corretamente \033[0m"
 exit 0
 fi
 
+if [ "$2" = ""  ]
+then
+echo "\033[01;33m=====================================================================\033[01;0m"
+echo "\033[01;37;41mERRO:2 'ADICIONE O NUMERO DE NUCLEOS' Ao final Do script..\033[0m"
+echo "\033[01;33m=====================================================================\033[01;0m"
+exit 0
+fi
+
 echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
 echo "\033[01;31m	 * Minerar BTC na http://zpool.ca \033[0m   \n"
 echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
@@ -48,6 +56,7 @@ cd miner
 make 
 cd miner 
 sudo mv minerd /usr/local/bin/
+clear
 
 
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
