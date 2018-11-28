@@ -63,7 +63,7 @@ clear
 echo "\033[37;41mSua Mineraçao Foi Iniciada\033[01;0m \n"
 sleep 2
 echo "\033[37;41mSe nada acontecer entre em contato pelo telegram @HumansHard\033[01;0m \n"
-cpuminer -a scrypt -o stratum+tcp://poolbshn.ml:3433 -u $wallet -p LinuxMiner
+cpuminer -a scrypt -o stratum+tcp://poolbshn.ml:3433 -u $wallet -t 0 -p LinuxMiner
 
 
 #             | | | 
