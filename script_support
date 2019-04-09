@@ -46,7 +46,7 @@ sudo apt-get install git -y
 sudo apt-get install screen -y
 sudo  apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ -y
 sudo rm -r cpuminer-multi 
-git clone https://github.com/tpruvot/cpuminer-multi.git cpuminer-multi
+git clone https://github.com/tpruvot/cpuminer-multi
 clear
 
 
