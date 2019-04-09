@@ -44,11 +44,11 @@ echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
 sudo apt-get update
 sudo apt-get install git -y
 sudo apt-get install screen -y
-sudo  apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ -y
+sudo   apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ g++ -y
 sudo rm -r cpuminer-multi 
 git clone https://github.com/tpruvot/cpuminer-multi
 clear
-
+ 
 
 # Aqui esta a configuração do minerador para script cryptonight
 #
